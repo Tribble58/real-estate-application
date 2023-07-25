@@ -1,0 +1,30 @@
+services:
+  real-estate-db:
+    image: postgres:14.5-alpine
+    restart: unless-stopped
+    env_file:
+      - .env
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    volumes:
+#      - ./docker/db/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
+      - real-estate-db-volume:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+#  real-estate:
+#    build: .
+#    env_file:
+#      - .env
+#    ports:
+#      - "8888:8888"
+#    depends_on:
+#      real-estate-db:
+#        condition: service_healthy
+
+volumes:
+  real-estate-db-volume:
