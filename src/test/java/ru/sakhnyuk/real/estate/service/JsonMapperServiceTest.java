@@ -18,7 +18,6 @@ public class JsonMapperServiceTest {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-
     @Test
     void mapClassToJson() throws JsonProcessingException {
         House house = jdbcTemplate.queryForObject("""

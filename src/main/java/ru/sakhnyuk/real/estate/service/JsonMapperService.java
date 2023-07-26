@@ -7,6 +7,7 @@ import ru.sakhnyuk.real.estate.storage.model.House;
 
 import java.util.List;
 
+@Deprecated
 @Service
 public class JsonMapperService {
 
