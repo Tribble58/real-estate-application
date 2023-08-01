@@ -29,6 +29,7 @@ public class DataStorage {
         @Override
         public House mapRow(ResultSet rs, int rowNum) throws SQLException {
             House house = new House();
+            house.setId(rs.getInt("id"));
             house.setAddress(rs.getString("address"));
             house.setCity(rs.getString("city"));
             house.setState(rs.getString("state"));

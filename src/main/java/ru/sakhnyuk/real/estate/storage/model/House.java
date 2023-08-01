@@ -1,8 +1,10 @@
 package ru.sakhnyuk.real.estate.storage.model;
 
+import org.springframework.data.relational.core.sql.In;
+
 public class House {
 
-    private Long id;
+    private Integer id;
     private String address;
     private String city;
     private String state;
@@ -10,18 +12,19 @@ public class House {
 
     public House() {};
 
-    public House(String address, String city, String state, String country) {
+    public House(Integer id, String address, String city, String state, String country) {
+        this.id = id;
         this.address = address;
         this.city = city;
         this.state = state;
         this.country = country;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
